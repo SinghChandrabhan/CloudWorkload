@@ -1,14 +1,17 @@
 var express = require("express");
 var router = express.Router();
 const fs = require("fs");
+const uuidv4 = require("uuid/v4");
 
 router.get("/break", function(req, res, next) {
   fs.createReadStream("my-self-esteem.txt");
   res.send("we will break this");
 });
 
+const guid_ = uuidv4();
 /* GET users listing. */
 router.get("/", function(req, res, next) {
+  res.header("x-process-guid", guid_);
   res.send([
     {
       userId: 1,
