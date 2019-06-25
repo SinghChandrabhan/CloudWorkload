@@ -64,7 +64,7 @@ namespace coreapi
             //app.Use 
 			  app.Use(async (context, next) =>
             {
-                context.Response.Headers.Add("X-Process-Identifier", API_GUID);
+                context.Response.Headers.Add("x-process-identifier", API_GUID);
                 await next.Invoke();               
             });
 

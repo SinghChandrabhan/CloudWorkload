@@ -30,7 +30,7 @@ namespace coreapi.CustomMiddleware
             await _next(context);
 
             //will not make any effect:
-            context.Response.Headers["x-postprocessed"] = "POST_PROCESSED";
+            //context.Response.Headers["x-postprocessed"] = "POST_PROCESSED";
         }
 
     }
