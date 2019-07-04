@@ -14,3 +14,11 @@ ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _o
 ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2, msg: we then have output from api2}
 ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2, msg: we then have output from api2}
 ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2, msg: we then have output from api2}
+ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2 with file writing and checking new container refresh, msg: we then have output from api2}
+ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2 with file writing and checking new container refresh, msg: we then have output from api2}
+ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2 with file writing and checking new container refresh, msg: we then have output from api2}
+ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2 with file writing and checking new container refresh, msg: we then have output from api2}
+ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2 with file writing and checking new container refresh, msg: we then have output from api2}
+ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2 with file writing and checking new container refresh, msg: we then have output from api2}
+ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2 with file writing and checking new container refresh, msg: we then have output from api2}
+ Version 2 : ExtraSettingNotInSettingsFile:CUSTOMCONNSTR_MONGO:webAPI2: {class: classname, _objectId:webapi2 with file writing and checking new container refresh, msg: we then have output from api2}

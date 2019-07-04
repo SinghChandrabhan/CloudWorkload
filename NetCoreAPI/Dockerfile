@@ -24,3 +24,9 @@ ENTRYPOINT ["dotnet", "coreapi.dll"]
 # docker run -it --mount type=bind,source=c:/Data,target=/app/dataVol chandrabhan/aspnetapp
 # docker create vol
 # docker run -it --mount source=myvol,target=/app/dataVol  chandrabhan/aspnetapp
+
+#az container create --resource-group myResourceGroup --name cloud-workloadapi --image acrapiworkload.azurecr.io/cl
+#oudworkload-dotnetapi --cpu 1 --memory 1 --registry-login-server acrapiworkload.azurecr.io --registry-username acrapiworkload --regist
+#ry-password 6giHm2XByEOjc3gW+6j=qE5erMiCbEdG --dns-name-label dockerworkloadapi --ports 80 --azure-file-volume-account-name fileshares
+#torageacc --azure-file-volume-account-key WIcSxPJcGfOQvSvCjpiT0tejkBHiw2C2ad+BWNp09WEuSJ4r0ZB5D+lUiufMXjZBclJOQPqWBpe02qu0eq8/bA== --a
+#zure-file-volume-share-name dockervol --azure-file-volume-mount-path /app/vol

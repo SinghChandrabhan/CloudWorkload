@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using System.Net.Http;
 
 namespace coreapi.Controllers
 {
@@ -29,7 +30,7 @@ namespace coreapi.Controllers
             var Message = $"About page visited at {DateTime.UtcNow.ToLongTimeString()}";
             _logger.LogInformation("_configuration.", Message);
             var output =  
-                @"ExtraSettingNotInSettingsFile:"
+                @" Version 2 : ExtraSettingNotInSettingsFile:"
                 +_configuration.GetValue<string>("ExtraSettingNotInSettingsFile")
                 +"CUSTOMCONNSTR_MONGO:"
                 +_configuration.GetConnectionString("CUSTOMCONNSTR_MONGO")
@@ -42,10 +43,13 @@ namespace coreapi.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("sidecar/{url}")]
+        public ActionResult<string> GetSidecar(string url)
         {
-            return "value";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.GetAsync($"http://{url}/api/values").Result;
+            //var result = await response.Content.ReadAsAsync<string>();
+            return response.Content.ReadAsStringAsync().Result;
         }      
 
         // POST api/values

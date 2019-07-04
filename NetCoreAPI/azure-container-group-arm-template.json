@@ -1,0 +1,108 @@
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "containerGroups_cloud_workloadapi_name": {
+            "defaultValue": "cloud-workloadapi",
+            "type": "String"
+        },
+		"containerGroups_cloud_workloadapi_name2": {
+            "defaultValue": "cloud-workloadapi2",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.ContainerInstance/containerGroups",
+            "apiVersion": "2018-04-01",
+            "name": "[parameters('containerGroups_cloud_workloadapi_name')]",
+            "location": "westeurope",
+            "properties": {
+                "containers": [
+                    {
+                        "name": "[parameters('containerGroups_cloud_workloadapi_name')]",
+                        "properties": {
+                            "image": "acrapiworkload.azurecr.io/cloudworkload-dotnetapi",
+                            "ports": [
+                                {
+									"port": 80
+                                },
+								{
+									"port": 8080
+                                }
+                            ],
+                            "environmentVariables": [],
+                            "resources": {
+                                "requests": {
+                                    "memoryInGB": 1,
+                                    "cpu": 1
+                                }
+                            },
+                            "volumeMounts": [
+                                {
+                                    "name": "azurefile",
+                                    "mountPath": "/app/vol"
+                                }
+                            ]
+                        }
+                    },
+					{
+                        "name": "[parameters('containerGroups_cloud_workloadapi_name2')]",
+                        "properties": {
+                            "image": "acrapiworkload.azurecr.io/cloudworkload-dotnetapi",   
+							"ports": [
+                                {
+                                   "port": 81
+                                },
+								{
+                                   "port": 8181
+                                }
+                            ],							
+                            "environmentVariables": [],
+                            "resources": {
+                                "requests": {
+                                    "memoryInGB": 1,
+                                    "cpu": 1
+                                }
+                            }                           
+                        }
+                    }
+                ],
+                "imageRegistryCredentials": [
+                    {
+                        "server": "acrapiworkload.azurecr.io",
+                        "username": "acrapiworkload",
+						"password": "6giHm2XByEOjc3gW+6j=qE5erMiCbEdG"
+                    }
+                ],
+                "restartPolicy": "Always",
+                "ipAddress": {
+                    "ports": [
+						{
+						  "protocol": "tcp",
+						  "port": "80"
+						},
+						{
+							"protocol": "tcp",
+							"port": "8080"
+						}
+					],
+                    "type": "Public",
+                    "dnsNameLabel": "dockerworkloadapi"
+                },
+                "osType": "Linux",
+                "volumes": [
+                    {
+                        "name": "azurefile",
+                        "azureFile": {
+                            "shareName": "dockervol",
+                            "storageAccountName": "filesharestorageacc",
+                            "storageAccountKey": "WIcSxPJcGfOQvSvCjpiT0tejkBHiw2C2ad+BWNp09WEuSJ4r0ZB5D+lUiufMXjZBclJOQPqWBpe02qu0eq8/bA=="                            
+                        }
+                    }
+                ]	  
+            }
+        }
+    ]
+}
