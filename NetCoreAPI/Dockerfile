@@ -1,5 +1,7 @@
-# docker run -d -p 8080:80 --name myapp chandrabhan/webapi2
-# docker run -d -p 8080:80  chandrabhan/webapi2 "ExtraSettingNotInSettingsFile=192.0.1.2"
+#docker run -it -p 8181:80 cloudworkloadcoreapi \
+#ExtraSettingNotInSettingsFile='01.00.1.' \
+#ConnectionStrings:CUSTOMCONNSTR_MONGO="Server=TestServer;Database=TestDb;Persist Security Info=True;User ID=TestUser;Password=testpassword;MultipleActiveResultSets=true"
+
 FROM microsoft/dotnet:sdk AS build-env
 WORKDIR /app
 

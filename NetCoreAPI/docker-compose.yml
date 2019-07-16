@@ -2,21 +2,15 @@
 # docker stack deploy --compose-file=docker-stack.yml voting_stack
 version: "3"
 services:
-  webapi2:
-    #image: chandrabhan/simpenodeapp
+  coreapi:
+    # image: cloudworkloadcoreapi
     build: ./
     # networks:
     #   - frontend
     environment:
       - ExtraSettingNotInSettingsFile=Development
+      - ConnectionStrings:CUSTOMCONNSTR_MONGO="Server=TestServer;Database=TestDb;Persist Security Info=True;User ID=TestUser;Password=testpassword;MultipleActiveResultSets=true"
+
     ports:
       - 8010:80
-#   nodevideoapp:
-#     #image: chandrabhan/simpenodeapp
-#     build: ./src/videos/
-#     networks:
-#       - frontend
-#     ports:
-#       - 5124:8124
-# networks:
-#   frontend:
+
